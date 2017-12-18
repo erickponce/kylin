@@ -16,23 +16,21 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>org.apache</groupId>
         <artifactId>apache</artifactId>
         <version>16</version>
-        <relativePath/>
+        <relativePath />
         <!-- no parent resolution -->
     </parent>
 
     <groupId>org.apache.kylin</groupId>
     <artifactId>kylin</artifactId>
     <packaging>pom</packaging>
-    <version>2.3.0-SNAPSHOT</version>
+    <version>2.2.1-SNAPSHOT</version>
 
     <name>Apache Kylin</name>
     <url>http://kylin.apache.org</url>
@@ -58,10 +56,10 @@
         <hbase-hadoop2.version>1.1.1</hbase-hadoop2.version>
 
         <!-- Kafka versions -->
-        <kafka.version>0.11.0.1</kafka.version>
+        <kafka.version>0.10.1.0</kafka.version>
 
         <!-- Spark versions -->
-        <spark.version>2.1.2</spark.version>
+        <spark.version>2.1.1</spark.version>
         <kryo.version>4.0.0</kryo.version>
 
         <!-- <reflections.version>0.9.10</reflections.version> -->
@@ -95,12 +93,11 @@
         <jetty.version>9.2.20.v20161216</jetty.version>
         <jamm.version>0.3.1</jamm.version>
         <mockito.version>2.7.14</mockito.version>
-        <powermock.version>1.7.0</powermock.version>
+
 
         <!-- Commons -->
         <commons-lang3.version>3.4</commons-lang3.version>
         <commons-email.version>1.5</commons-email.version>
-        <commons-validator.version>1.4.0</commons-validator.version>
 
         <!-- Utility -->
         <log4j.version>1.2.17</log4j.version>
@@ -118,7 +115,7 @@
         <!--metric-->
         <dropwizard.version>3.1.2</dropwizard.version>
         <!-- REST Service, ref https://github.com/spring-projects/spring-boot/blob/v1.3.8.RELEASE/spring-boot-dependencies/pom.xml -->
-        <spring.boot.version>1.3.8.RELEASE</spring.boot.version>
+        <spring.boot.version>1.4.8.RELEASE</spring.boot.version>
         <spring.framework.version>4.3.10.RELEASE</spring.framework.version>
         <spring.framework.security.version>4.2.3.RELEASE</spring.framework.security.version>
         <spring.framework.security.extensions.version>1.0.2.RELEASE</spring.framework.security.extensions.version>
@@ -206,21 +203,6 @@
             <dependency>
                 <groupId>org.apache.kylin</groupId>
                 <artifactId>kylin-core-common</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.kylin</groupId>
-                <artifactId>kylin-core-metrics</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.kylin</groupId>
-                <artifactId>kylin-metrics-reporter-hive</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.kylin</groupId>
-                <artifactId>kylin-metrics-reporter-kafka</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -641,11 +623,6 @@
                 <artifactId>commons-email</artifactId>
                 <version>${commons-email.version}</version>
             </dependency>
-            <dependency>
-                <groupId>commons-validator</groupId>
-                <artifactId>commons-validator</artifactId>
-                <version>${commons-validator.version}</version>
-            </dependency>
 
             <!-- Logging -->
             <dependency>
@@ -669,13 +646,6 @@
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
-            </dependency>
-
-            <!-- Metrics -->
-            <dependency>
-                <groupId>io.dropwizard.metrics</groupId>
-                <artifactId>metrics-core</artifactId>
-                <version>${dropwizard.version}</version>
             </dependency>
 
             <!-- Test -->
@@ -1030,7 +1000,8 @@
                             <phase>validate</phase>
                             <configuration>
                                 <configLocation>dev-support/checkstyle.xml</configLocation>
-                                <suppressionsLocation>dev-support/checkstyle-suppressions.xml</suppressionsLocation>
+                                <suppressionsLocation>dev-support/checkstyle-suppressions.xml
+                                </suppressionsLocation>
                                 <includeTestSourceDirectory>true</includeTestSourceDirectory>
                                 <consoleOutput>true</consoleOutput>
                                 <failsOnError>true</failsOnError>
@@ -1081,7 +1052,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore/>
+                                        <ignore />
                                     </action>
                                 </pluginExecution>
                             </pluginExecutions>
@@ -1154,9 +1125,6 @@
         <module>tool-assembly</module>
         <module>kylin-it</module>
         <module>tomcat-ext</module>
-        <module>core-metrics</module>
-        <module>metrics-reporter-hive</module>
-        <module>metrics-reporter-kafka</module>
     </modules>
 
     <reporting>
